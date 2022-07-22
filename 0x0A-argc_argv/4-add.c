@@ -1,38 +1,37 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 /**
- * main- function that returns the sum of +ve numbs
- * @argc: counts the number of args passed
- * @argv: an array of strings
- * Return: Always 0
+ * main - add 2 positive numbers and print the result
+ * @argc: argument count
+ * @argv: argument vector, array of strings
+ * Description: If no number is passed to program, print 0.
+ * If one of the numbers contain non-digits, print Error.
+ * Return: 1 if error, 0 if function runs properly.
  */
+
 int main(int argc, char *argv[])
 {
-	int i, sum = 0;
+	int total, i;
+	char *p;
+	int num;
 
-	if (argc == 1)
+	total = 0;
+	if (argc > 1)
 	{
-		printf("0\n");
-	}
-
-	if (argc > 2)
-	{
-		for (i = 1; i < argc; i++)
+		for (i = 1; argv[i]; i++)
 		{
-			int isdigit(int c);
-
-			if  (isdigit(*argv[i]) != 0 /*&& isdigit(*argv[i])>= 0*/)
-			{
-				sum += atoi(argv[i]);
-			}
+			num = strtol(argv[i], &p, 10);
+			if (!*p)
+				total += num;
 			else
 			{
 				printf("Error\n");
 				return (1);
 			}
 		}
-		printf("%d\n", sum);
 	}
-	exit(EXIT_SUCCESS);
+	printf("%d\n", total);
+	return (0);
 }
