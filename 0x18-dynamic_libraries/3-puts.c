@@ -1,9 +1,11 @@
 #include "main.h"
 
 /**
- * _puts - print a string to stdout
- * @str: char array string type
- * Description: Can only use _putchar
+ * _puts - function that prints a string, followed by \n, to stdout
+ *
+ * @str: char pointer variable
+ *
+ * Return: nothing
  */
 
 void _puts(char *str)
@@ -14,5 +16,5 @@ void _puts(char *str)
 	{
 		_putchar(str[i]);
 	}
-	_putchar('\n');
+	_putchar(10);
 }
